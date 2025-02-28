@@ -1,6 +1,6 @@
-# RaspberryPi-Nvme_over_TCP\
+# RaspberryPi-Nvme_over_TCP
 
-#### 树莓派端
+#### 树莓派target端
 
 ```
 sudo su
@@ -26,3 +26,12 @@ echo 4420 > addr_trsvcid
 cd subsystems/
 ln -s ../../../subsystems/nvme-subsystem-name nvme-subsystem-name
 ```
+
+
+#### 主机client端
+```
+modprobe nvmet-tcp
+ip addr add 192.168.1.160/24 dev enp3s0
+nvme discover -t tcp -a 192.168.1.159 -s 4420
+```
+
