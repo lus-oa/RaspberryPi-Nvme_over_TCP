@@ -46,5 +46,6 @@ ln -s ../../../subsystems/nvme-subsystem-name nvme-subsystem-name
 modprobe nvmet-tcp
 ip addr add 192.168.1.160/24 dev enp3s0
 nvme discover -t tcp -a 192.168.1.159 -s 4420
+nvme connect -t tcp -a 192.168.1.159 -s 4420 -n nvme-subsystem-name
 ```
 
