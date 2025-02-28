@@ -3,6 +3,7 @@
 #### 树莓派端
 
 ```
+sudo su
 sudo modprobe nvmet_tcp
 mkdir /sys/kernel/config/nvmet/subsystems/nvme-subsystem-name
 cd /sys/kernel/config/nvmet/subsystems
