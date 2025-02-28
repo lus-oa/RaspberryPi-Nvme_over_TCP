@@ -1,8 +1,21 @@
 # RaspberryPi-Nvme_over_TCP
 
 #### 树莓派target端
+```
+#注册虚拟nvme设备
+sudo fallocate -l 10G /root/nvme_disk.img
+sudo losetup /dev/loop99 /root/nvme_disk.img
+sudo modprobe nvme
+sudo nvme connect-all
+sudo mkfs.ext4 /dev/nvme1n1
+sudo mkdir /mnt/nvme
+sudo mount /dev/nvme1n1 /mnt/nvme
+
+sudo ip link set eth0 up
+```
 
 ```
+#配置nvme over TCP
 sudo su
 sudo modprobe nvmet_tcp
 mkdir /sys/kernel/config/nvmet/subsystems/nvme-subsystem-name
